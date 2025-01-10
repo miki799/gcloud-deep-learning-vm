@@ -1,23 +1,23 @@
 # Defines VM instance
 resource "google_compute_instance" "vm_instance" {
-  name         = "deep-learning-vm"
-  machine_type = "n1-standard-1" # 1vCPU, 3.75GBmem, more machines are defined here: https://cloud.google.com/compute/docs/general-purpose-machines#n1_machine_types
+  name         = var.vm_name
+  machine_type = var.machine_type
 
   boot_disk {
     initialize_params {
-      image = "projects/deeplearning-platform-release/global/images/family/tf-ent-latest-gpu" # Available images: https://cloud.google.com/deep-learning-vm/docs/images
-      size  = "100"
-      type  = "pd-ssd"
+      image = var.image
+      size  = var.disk_size
+      type  = var.disk_type
     }
   }
 
   guest_accelerator {
-    type  = "nvidia-tesla-t4"
-    count = 1 # Google Cloud project qouta needs to allow GPUs
+    type  = var.gpu_type
+    count = var.gpu_count
   }
 
   network_interface {
-    # VM will use defau;t VPC (Virtual Private Cloud) network
+    # VM will use default VPC (Virtual Private Cloud) network
     network = "default"
     access_config {
       # external IP will be assigned in a dynamic way

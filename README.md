@@ -32,9 +32,9 @@ terraform show
 
 a. `gcloud compute ssh` command
 ```bash
-gcloud compute ssh $VM_INSTANCE_NAME --zone $VM_ZONE
+gcloud compute ssh <vm_instance_name> --zone <vm_zone>
 ```
 b. OpenSSH client
 ```bash
-ssh -i ~/.ssh/$PRIVATE_KEY $VM_USER@VM_EXTERNAL_IP
+ssh -i ~/.ssh/<ssh_private_key> <vm_user_name>@<vm_external_ip>
 ```

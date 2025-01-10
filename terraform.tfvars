@@ -1,4 +1,4 @@
-project = "ola-test-446520"
-region  = "europe-central2"
-zone    = "europe-central2-b"
-user    = "mikolaj_telec" # VM user name
+project = "<project_id>"
+region  = "<region>"
+zone    = "<zone>"
+user    = "<vm_username>" # VM user name
